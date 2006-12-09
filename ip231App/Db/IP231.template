@@ -1,4 +1,4 @@
-record(ao, "LCLS:IP_TEST:AO:C$(CH)") {
+record(ao, "$(RECNAME)") {
   field(DESC, "Analog Output")
   field(DTYP, "IP231")
   field(OUT,  "@$(CARD):$(CH):DATA")
