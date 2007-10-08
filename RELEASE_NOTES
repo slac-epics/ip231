@@ -10,12 +10,16 @@
 #--------------------------------------------------------------
 #  Mod:
 #        26-Sep-2007, K. Luchini         (LUCHINI):
+#          release ip231-R1-0-3
 #          release ip231-R1-0-2
 #        30-Aug-2007, K. Luchini         (LUCHINI):
 #          release ip231-R1-0-1
 #
 #==============================================================
 #
+ip231-R1-0-3:   Build with base-R3-14-9-lcls1 (RTEMS 4.7.1)
+                Build with ipac-R2-8-lcls2
+
 ip231-R1-0-2:   Build with base-R3-14-8-2-lcls2 (RTEMS 4.7.1)
                 Build with ipac-R2-8-lcls1
 
