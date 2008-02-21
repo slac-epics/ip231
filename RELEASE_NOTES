@@ -23,6 +23,8 @@
 #
 ip231-R1-0-5:   Build with base-R3-14-9-lcls1 (RTEMS 4.7.1)
                 Build with ipac-R2-8-lcls4  
+                Replace CONFIG_APP with CONFIG_SITE
+                Add RELEASE_SITE  
 
 ip231-R1-0-4:   Backout epics version to bas-R3-14-8-2
                 Build with ipac-R2-8-lcls3 w/no hotswap 
