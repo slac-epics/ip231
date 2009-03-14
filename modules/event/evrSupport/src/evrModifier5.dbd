@@ -1,6 +1,0 @@
-function(evrModifier5)
-function(evrModifier5Bits)
-function(evrPattern)
-function(mpgEdefMeasSevrMasks)
-function(evrEdefMeasSevr)
-function(mpgEdefInitMask)
