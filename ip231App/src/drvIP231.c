@@ -7,7 +7,7 @@
 #include "drvIP231Lib.h"
 #include "drvIP231Private.h"
 
-int    IP231_DRV_DEBUG = 0;
+int    IP231_DRV_DEBUG = 1;
 
 static IP231_CARD_LIST	ip231_card_list;
 static int		card_list_inited=0;
