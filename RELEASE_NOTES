@@ -27,6 +27,7 @@
 #
 ip231-R2-1-0:   Build with base-R3-14-8-2-lcls35
                 Build with rtems-R4.9.3
+                Install Headers for interface to driver
 
 ip231-R2-0-0:   Build with base-R3-14-8-2-lcls3 
                 Build with rtems-R4.9.1
