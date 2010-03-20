@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        20-Mar-2010, S. Hoobler         (SONYA):
+#          release ip231-R2-2-0
 #        23-Feb-2010, K. Luchini         (LUCHINI):
 #          release ip231-R2-1-0
 #        28-Apr-2009, K. Luchini         (LUCHINI):
@@ -25,7 +27,10 @@
 #
 #==============================================================
 #
-ip231-R2-1-0:   Build with base-R3-14-8-2-lcls35
+ip231-R2-2-0:   Build with base-R3-14-8-2-lcls6
+                Build with rtems-R4.9.4
+
+ip231-R2-1-0:   Build with base-R3-14-8-2-lcls5
                 Build with rtems-R4.9.3
                 Install Headers for interface to driver
 
