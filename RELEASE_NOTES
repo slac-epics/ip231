@@ -28,6 +28,8 @@
 #==============================================================
 #
 #
+ip231-R2-2-2:  Build against ipac-R2-8-lcls8
+
 ip231-R2-2-1:   07-Sep-2011, K. Luchini (LUCHINI:
                 Upgrade ipac from ipac-R2-8-lcls7 to ipac-R2-11-lcls1
                 Upgrade macros in RELEASE_SITE
