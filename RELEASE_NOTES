@@ -28,7 +28,9 @@
 #==============================================================
 #
 #
-ip231-R     :  Build with ipac-R2-11-lcls1
+ip231-R2-2-3: 23-Jan-2012, Nia Fong (NIAFONG):
+               Build with ipac-R2-11-lcls1
+               cleanup configure/RELEASE
 
 ip231-R2-2-2:  Build against ipac-R2-8-lcls8
 
