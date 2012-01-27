@@ -1,5 +1,5 @@
 /****************************************************************/
-/* $Id: devAoIP231.c,v 1.2 2006/08/10 16:28:28 pengs Exp $      */
+/* $Id: devAoIP231.c,v 1.1.1.1 2006/08/10 16:28:28 luchini Exp $      */
 /* This file implements AO record device support for IP231 DAC  */
 /* Author: Sheng Peng, pengs@slac.stanford.edu, 650-926-3847    */
 /****************************************************************/

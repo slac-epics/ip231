@@ -6,7 +6,7 @@ extern "C" {
 #endif  /* __cplusplus */
 
 /******************************************************************/
-/* $Id: drvIP231Private.h,v 1.3 2006/09/06 23:43:37 pengs Exp $   */
+/* $Id: drvIP231Private.h,v 1.2 2006/12/09 00:21:57 pengs Exp $   */
 /* This file defines the internal hw/sw struct of IP231 DAC module*/
 /* Author: Sheng Peng, pengs@slac.stanford.edu, 650-926-3847      */
 /******************************************************************/

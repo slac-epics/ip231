@@ -2,7 +2,7 @@
 #define _INCLUDE_DRV_IP231_LIB_H_
 
 /****************************************************************/
-/* $Id: drvIP231Lib.h,v 1.2 2006/08/10 16:27:35 pengs Exp $     */
+/* $Id: drvIP231Lib.h,v 1.1.1.1 2006/08/10 16:27:35 luchini Exp $     */
 /* This file defines the user interface of IP231 support        */
 /* Author: Sheng Peng, pengs@slac.stanford.edu, 650-926-3847    */
 /****************************************************************/
