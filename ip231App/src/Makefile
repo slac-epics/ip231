@@ -15,6 +15,7 @@ DBD += IP231.dbd
 # Install Headers for interface to driver
 INC += ptypes.h
 INC += drvIP231Lib.h
+INC += drvIP231Private.h
 # Add locally compiled object code
 IP231_SRCS += drvIP231.c
 IP231_SRCS += devAoIP231.c
