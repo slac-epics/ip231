@@ -9,6 +9,8 @@
 #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
 #--------------------------------------------------------------
 #  Mod:
+#        05-Apr-2012, K. Luchini         (LUCHINI):
+#          release ip231-R2-2-4
 #        20-Mar-2010, S. Hoobler         (SONYA):
 #          release ip231-R2-2-0
 #        23-Feb-2010, K. Luchini         (LUCHINI):
@@ -27,7 +29,9 @@
 #
 #==============================================================
 #
-#
+ip231-R2-2-4: 05-Apr-2012, Nia Fong (LUCHINI):
+               Installed drvIP231Private.h
+
 ip231-R2-2-3: 23-Jan-2012, Nia Fong (NIAFONG):
                Build with ipac-R2-11-lcls1
                cleanup configure/RELEASE
