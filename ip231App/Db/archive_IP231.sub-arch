@@ -1,0 +1,23 @@
+#archive substitution for IP231 
+file archive_IP231.tpl-arch
+{ pattern
+{ RECORDNAME, 			CH}
+{ "$(CARD):out$(CH)",	0}
+{ "$(CARD):out$(CH)",	1}
+{ "$(CARD):out$(CH)",	2}
+{ "$(CARD):out$(CH)",	3}
+{ "$(CARD):out$(CH)",	4}
+{ "$(CARD):out$(CH)",	5}
+{ "$(CARD):out$(CH)",	6}
+{ "$(CARD):out$(CH)",	7}
+{ "$(CARD):out$(CH)",	8}
+{ "$(CARD):out$(CH)",	9}
+{ "$(CARD):out$(CH)",	10}
+{ "$(CARD):out$(CH)",	11}
+{ "$(CARD):out$(CH)",	12}
+{ "$(CARD):out$(CH)",	13}
+{ "$(CARD):out$(CH)",	14}
+{ "$(CARD):out$(CH)",	15}
+}
+
+

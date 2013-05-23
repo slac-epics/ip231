@@ -13,6 +13,7 @@ include $(TOP)/configure/CONFIG
 DB += IP231.template
 DB += IP231.db
 
+ARCHIVE += archive_IP231.archive
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_TEMPLATE = <templatename>
