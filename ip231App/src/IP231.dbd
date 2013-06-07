@@ -1,3 +1,4 @@
 # Acromag IP231 DAC driver and device support
 device(ao, INST_IO, devAoIP231, "ACROMAG-IP231")
 driver(drvIP231)
+registrar(drvIP231Registrar)
