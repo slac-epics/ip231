@@ -13,6 +13,7 @@
 #include "iocsh.h"
 #endif
 
+#include "errlog.h"
 #include "drvIP231Lib.h"
 #include "drvIP231Private.h"
 
@@ -84,7 +85,7 @@ int ip231Create (char *cardname, UINT16 carrier, UINT16 slot, char *dacmode)
     {/* Initialize the IP231 link list */
         ellInit( (ELLLIST *) &ip231_card_list);
         card_list_inited = 1;
-        if(IP231_DRV_DEBUG) printf("The size of IP231_HW_MAP is %d\n", sizeof(struct IP231_HW_MAP));
+        if(IP231_DRV_DEBUG) printf("The size of IP231_HW_MAP is %zu\n", sizeof(struct IP231_HW_MAP));
     }
 
     pcard->lock = epicsMutexMustCreate();
