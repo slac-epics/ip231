@@ -154,17 +154,12 @@ int ip231Create (char *cardname, UINT16 carrier, UINT16 slot, char *dacmode)
     /* Read EEPROM to get calibration data */
     for(loop = 0; loop < pcard->num_chnl; loop++)
     {
-        UINT8 offset_h8, offset_l8, gain_h8, gain_l8;
         UINT16 offset, gain;
         SINT16 offset_val, gain_val;
 
-        offset_h8 = pcard->pHardware->calData[loop*4 + 0];
-        offset_l8 = pcard->pHardware->calData[loop*4 + 1];
-        gain_h8 = pcard->pHardware->calData[loop*4 + 2];
-        gain_l8 = pcard->pHardware->calData[loop*4 + 3];
+	offset = pcard->pHardware->calData[loop*4+0];
+        gain = pcard->pHardware->calData[loop*4+2];  
 
-        offset = (offset_h8 << 8) + offset_l8;
-        gain = (gain_h8 << 8) + gain_l8;
         if(IP231_DRV_DEBUG) printf("Card %s, Channel %d, offset_err 0x%04x, gain_err 0x%04x\n", cardname, loop, offset, gain);
 
         offset_val = (SINT16)offset;
