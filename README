@@ -17,7 +17,7 @@
 EPICS Verions:
 --------------
 This driver has currently been built and tested at SLAC with EPICS 3.14.8.2.
-This driver has implemented EPICS OSI function calls and is OSI complient.
+This driver has implemented EPICS OSI function calls and is OSI compliant.
 
 Operating System:
 -------------------
@@ -66,7 +66,7 @@ addCarrier( "0x0000" )
 ip231Create( "ao0", 0, 3, "transparent" )
 
 # Load the EPICS records
-dbLoadRecords("db/IP231.db","CARD=ao0")
+dbLoadRecords("db/IP231.db","PRE=TST:AOUT:,CARD=ao0")
 
 ############################################################
 
@@ -77,19 +77,19 @@ in this module are shown below.  These can be customized after you copy the
 template and substitution files to your ioc.
 ------------------
 PV Name:	Type:		Description:
-ao0:out0	bo			Analog Output 0
-ao0:out1	bo			Analog Output 1
-ao0:out2	bo			Analog Output 2
-ao0:out3	bo			Analog Output 3
-ao0:out4	bo			Analog Output 4
-ao0:out5	bo			Analog Output 5
-ao0:out6	bo			Analog Output 6
-ao0:out7	bo			Analog Output 7
-ao0:out8	bo			Analog Output 8
-ao0:out9	bo			Analog Output 9
-ao0:out10	bo			Analog Output 10
-ao0:out11	bo			Analog Output 11
-ao0:out12	bo			Analog Output 12
-ao0:out13	bo			Analog Output 13
-ao0:out14	bo			Analog Output 14
-ao0:out15	bo			Analog Output 15
+TST:AOUT:0	ao			Analog Output 0
+TST:AOUT:1	ao			Analog Output 1
+TST:AOUT:2	ao			Analog Output 2
+TST:AOUT:3	ao			Analog Output 3
+TST:AOUT:4	ao			Analog Output 4
+TST:AOUT:5	ao			Analog Output 5
+TST:AOUT:6	ao			Analog Output 6
+TST:AOUT:7	ao			Analog Output 7
+TST:AOUT:8	ao			Analog Output 8
+TST:AOUT:9	ao			Analog Output 9
+TST:AOUT:10	ao			Analog Output 10
+TST:AOUT:11	ao			Analog Output 11
+TST:AOUT:12	ao			Analog Output 12
+TST:AOUT:13	ao			Analog Output 13
+TST:AOUT:14	ao			Analog Output 14
+TST:AOUT:15	ao			Analog Output 15

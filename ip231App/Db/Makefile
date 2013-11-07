@@ -11,7 +11,7 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install)
 # databases, templates, substitutions like this
 DB += IP231.template
-DB += IP231.db
+DB += IP231.substitutions
 
 ARCHIVE += archive_IP231.archive
 #----------------------------------------------------
