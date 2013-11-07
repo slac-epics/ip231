@@ -4,6 +4,16 @@
 /* Author: Sheng Peng, pengs@slac.stanford.edu, 650-926-3847    */
 /****************************************************************/
 
+#ifndef NO_EPICS
+#include "devLib.h"
+#include "drvSup.h"
+#include "dbScan.h"
+#include "epicsInterrupt.h"
+#include "epicsExport.h"
+#include "iocsh.h"
+#endif
+
+#include "errlog.h"
 #include "drvIP231Lib.h"
 #include "drvIP231Private.h"
 
@@ -75,7 +85,7 @@ int ip231Create (char *cardname, UINT16 carrier, UINT16 slot, char *dacmode)
     {/* Initialize the IP231 link list */
         ellInit( (ELLLIST *) &ip231_card_list);
         card_list_inited = 1;
-        if(IP231_DRV_DEBUG) printf("The size of IP231_HW_MAP is %d\n", sizeof(struct IP231_HW_MAP));
+        if(IP231_DRV_DEBUG) printf("The size of IP231_HW_MAP is %zu\n", sizeof(struct IP231_HW_MAP));
     }
 
     pcard->lock = epicsMutexMustCreate();
@@ -144,17 +154,12 @@ int ip231Create (char *cardname, UINT16 carrier, UINT16 slot, char *dacmode)
     /* Read EEPROM to get calibration data */
     for(loop = 0; loop < pcard->num_chnl; loop++)
     {
-        UINT8 offset_h8, offset_l8, gain_h8, gain_l8;
         UINT16 offset, gain;
         SINT16 offset_val, gain_val;
 
-        offset_h8 = pcard->pHardware->calData[loop*4 + 0];
-        offset_l8 = pcard->pHardware->calData[loop*4 + 1];
-        gain_h8 = pcard->pHardware->calData[loop*4 + 2];
-        gain_l8 = pcard->pHardware->calData[loop*4 + 3];
+	offset = pcard->pHardware->calData[loop*4+0];
+        gain = pcard->pHardware->calData[loop*4+2];  
 
-        offset = (offset_h8 << 8) + offset_l8;
-        gain = (gain_h8 << 8) + gain_l8;
         if(IP231_DRV_DEBUG) printf("Card %s, Channel %d, offset_err 0x%04x, gain_err 0x%04x\n", cardname, loop, offset, gain);
 
         offset_val = (SINT16)offset;
@@ -341,4 +346,48 @@ static long IP231_EPICS_Report(int level)
 
     return 0;
 }
+/*******************************************************************************
+* EPICS iocsh Command registry
+*/
+
+#ifndef NO_EPICS
+
+#if     0
+/* ip231Report(int interest) */
+static const iocshArg ip231ReportArg0 = {"interest", iocshArgInt};
+static const iocshArg * const ip231ReportArgs[1] = {&ip231ReportArg0};
+static const iocshFuncDef ip231ReportFuncDef =
+    {"ip231Report",1,ip231ReportArgs};
+static void ip231ReportCallFunc(const iocshArgBuf *args)
+{
+    ip231Report(args[0].ival);
+}
+#endif
+
+
+/* ip231Create( char *pName, unsigned short card, unsigned short slot, char *modeNamer); */
+
+static const iocshArg ip231CreateArg0 = {"pName",iocshArgPersistentString};
+static const iocshArg ip231CreateArg1 = {"card", iocshArgInt};
+static const iocshArg ip231CreateArg2 = {"slot", iocshArgInt};
+static const iocshArg ip231CreateArg3 = {"modeName",iocshArgString};
+
+static const iocshArg * const ip231CreateArgs[9] = {
+    &ip231CreateArg0, &ip231CreateArg1, &ip231CreateArg2, &ip231CreateArg3};
+
+static const iocshFuncDef ip231CreateFuncDef =
+    {"ip231Create",4,ip231CreateArgs};
+
+static void ip231CreateCallFunc(const iocshArgBuf *arg)
+{
+    ip231Create(arg[0].sval, arg[1].ival, arg[2].ival, arg[3].sval);
+}
+
+LOCAL void drvIP231Registrar(void) {
+/*    iocshRegister(&ip231ReportFuncDef,ip231ReportCallFunc); */
+    iocshRegister(&ip231CreateFuncDef,ip231CreateCallFunc);
+}
+epicsExportRegistrar(drvIP231Registrar);
+
+#endif /* NO_EPICS */
 
