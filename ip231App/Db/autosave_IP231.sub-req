@@ -1,5 +1,5 @@
-# archive substitution for IP231 
-file ip231-signal.tpl-arch
+# autosave substitution for IP231 
+file ip231-signal.tpl-req
 {
 	pattern
 	{ SIG			}
