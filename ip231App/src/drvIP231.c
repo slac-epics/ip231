@@ -18,6 +18,7 @@
 #include "drvIP231Private.h"
 
 int    IP231_DRV_DEBUG = 0;
+int    IP231_DRV_DEBUG_CH = -1;
 
 static IP231_CARD_LIST	ip231_card_list;
 static int		card_list_inited=0;
@@ -157,7 +158,7 @@ int ip231Create (char *cardname, UINT16 carrier, UINT16 slot, char *dacmode)
         UINT16 offset, gain;
         SINT16 offset_val, gain_val;
 
-	offset = pcard->pHardware->calData[loop*4+0];
+        offset = pcard->pHardware->calData[loop*4+0];
         gain = pcard->pHardware->calData[loop*4+2];  
 
         if(IP231_DRV_DEBUG) printf("Card %s, Channel %d, offset_err 0x%04x, gain_err 0x%04x\n", cardname, loop, offset, gain);
@@ -224,7 +225,8 @@ int ip231Write(IP231_ID pcard, UINT16 channel, signed int value)
         return -1;
     }
 
-    if(IP231_DRV_DEBUG) printf("Write %d to card %s channel %d\n", value, pcard->cardname, channel);
+    if ( IP231_DRV_DEBUG && (IP231_DRV_DEBUG_CH < 0 || IP231_DRV_DEBUG_CH == channel) )
+		printf("Write %d to card %s channel %d\n", value, pcard->cardname, channel);
 
     tmp = value * pcard->adj_slope[channel] + pcard->adj_offset[channel];
     if(tmp > 65535)
@@ -240,7 +242,8 @@ int ip231Write(IP231_ID pcard, UINT16 channel, signed int value)
 
     while( !(mask & (pcard->pHardware->writeStatus)) );
 
-    if(IP231_DRV_DEBUG) printf("Write corrected %d (%#04x) to card %s channel %d@%p\n", dac_val, dac_val, pcard->cardname, channel, &(pcard->pHardware->data[channel]));
+    if ( (IP231_DRV_DEBUG > 1) && (IP231_DRV_DEBUG_CH < 0 || IP231_DRV_DEBUG_CH == channel) )
+		printf("Write corrected %d (%#04x) to card %s channel %d@%p\n", dac_val, dac_val, pcard->cardname, channel, &(pcard->pHardware->data[channel]));
 
     pcard->pHardware->data[channel] = dac_val;
 
@@ -388,6 +391,8 @@ LOCAL void drvIP231Registrar(void) {
     iocshRegister(&ip231CreateFuncDef,ip231CreateCallFunc);
 }
 epicsExportRegistrar(drvIP231Registrar);
+epicsExportAddress( int, IP231_DRV_DEBUG );
+epicsExportAddress( int, IP231_DRV_DEBUG_CH );
 
 #endif /* NO_EPICS */
 

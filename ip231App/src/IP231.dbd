@@ -2,3 +2,5 @@
 device(ao, INST_IO, devAoIP231, "ACROMAG-IP231")
 driver(drvIP231)
 registrar(drvIP231Registrar)
+variable( IP231_DRV_DEBUG, int )
+variable( IP231_DRV_DEBUG_CH, int )
