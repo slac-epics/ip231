@@ -11,7 +11,7 @@ EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
 # ===============================================================
 # Define the version(s) of any other needed modules 
 # ===============================================================
-IPAC_MODULE_VERSION=R3.0.0-1.1.1
+IPAC_MODULE_VERSION=R3.0.0-1.1.3
 
 # ============================================================
 # External Support module path definitions
