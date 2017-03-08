@@ -1,8 +1,16 @@
 /****************************************************************/
-/* $Id: drvIP231.c,v 1.3 2006/08/10 16:31:19 pengs Exp $        */
+/* $Id: drvIP231.c,v 1.1.1.1 2006/08/10 16:31:19 luchini Exp $        */
 /* This file implements driver support for IP231 DAC            */
 /* Author: Sheng Peng, pengs@slac.stanford.edu, 650-926-3847    */
 /****************************************************************/
+#ifndef NO_EPICS
+#include "devLib.h"
+#include "drvSup.h"
+#include "dbScan.h"
+#include "epicsInterrupt.h"
+#include "epicsExport.h"
+#include "iocsh.h"
+#endif
 
 #include "drvIP231Lib.h"
 #include "drvIP231Private.h"
@@ -341,4 +349,49 @@ static long IP231_EPICS_Report(int level)
 
     return 0;
 }
+/*******************************************************************************
+* EPICS iocsh Command registry
+*/
+
+#ifndef NO_EPICS
+
+#if     0
+/* ip231Report(int interest) */
+static const iocshArg ip231ReportArg0 = {"interest", iocshArgInt};
+static const iocshArg * const ip231ReportArgs[1] = {&ip231ReportArg0};
+static const iocshFuncDef ip231ReportFuncDef =
+    {"ip231Report",1,ip231ReportArgs};
+static void ip231ReportCallFunc(const iocshArgBuf *args)
+{
+    ip231Report(args[0].ival);
+}
+#endif
+
+
+/* ip231Create( char *pName, unsigned short card, unsigned short slot, char *modeNamer); */
+
+static const iocshArg ip231CreateArg0 = {"pName",iocshArgPersistentString};
+static const iocshArg ip231CreateArg1 = {"card", iocshArgInt};
+static const iocshArg ip231CreateArg2 = {"slot", iocshArgInt};
+static const iocshArg ip231CreateArg3 = {"modeName",iocshArgString};
+
+static const iocshArg * const ip231CreateArgs[9] = {
+    &ip231CreateArg0, &ip231CreateArg1, &ip231CreateArg2, &ip231CreateArg3};
+
+static const iocshFuncDef ip231CreateFuncDef =
+    {"ip231Create",4,ip231CreateArgs};
+
+static void ip231CreateCallFunc(const iocshArgBuf *arg)
+{
+    ip231Create(arg[0].sval, arg[1].ival, arg[2].ival, arg[3].sval);
+}
+
+LOCAL void drvIP231Registrar(void) {
+/*    iocshRegister(&ip231ReportFuncDef,ip231ReportCallFunc); */
+    iocshRegister(&ip231CreateFuncDef,ip231CreateCallFunc);
+}
+epicsExportRegistrar(drvIP231Registrar);
+epicsExportAddress( int, IP231_DRV_DEBUG );
+
+#endif /* NO_EPICS */
 

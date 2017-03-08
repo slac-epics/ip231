@@ -28,7 +28,10 @@
 #          release ip231-R1-0-1
 #
 #==============================================================
-#
+##
+ip231-R2-2-7:	 Build agasint ipac R2.11-1.5.0 and build for all targets
+                 Add registrar information to drvIp231.c for linux builds
+
 ip231-R2-2-6:    Build against ipac-R2-11_1-2 which builds for all targets
 
 ip231-R2-2-5:     Build against ipac-R2-11_1-0 which builds for all targets
