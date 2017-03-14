@@ -19,7 +19,7 @@ record(ao, "$(RECNAME)") {
   field(HSV,  "MINOR")
   field(LSV,  "MINOR")
   field(LLSV, "MAJOR")
-  field(PINI, "$(PINI=NO)"
+  field(PINI, "$(PINI=NO)")
 }
 
 
