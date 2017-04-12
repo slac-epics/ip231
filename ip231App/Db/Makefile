@@ -11,7 +11,13 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install)
 # databases, templates, substitutions like this
 DB += IP231.template
-DB += IP231.db
+DB += IP231.substitutions
+
+ARCHIVE += archive_IP231.sub-arch
+ARCHIVE += ip231-signal.tpl-arch
+
+REQ += autosave_IP231.sub-req
+REQ += ip231-signal.tpl-req
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

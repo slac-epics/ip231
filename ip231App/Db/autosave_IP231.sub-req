@@ -1,0 +1,23 @@
+# autosave substitution for IP231 
+file ip231-signal.tpl-req
+{
+	pattern
+	{ SIG			}
+	{ "$(PRE)0"		}
+	{ "$(PRE)1"		}
+	{ "$(PRE)2"		}
+	{ "$(PRE)3"		}
+	{ "$(PRE)4"		}
+	{ "$(PRE)5"		}
+	{ "$(PRE)6"		}
+	{ "$(PRE)7"		}
+	{ "$(PRE)8"		}
+	{ "$(PRE)9"		}
+	{ "$(PRE)10"	}
+	{ "$(PRE)11"	}
+	{ "$(PRE)12"	}
+	{ "$(PRE)13"	}
+	{ "$(PRE)14"	}
+	{ "$(PRE)15"	}
+}
+
