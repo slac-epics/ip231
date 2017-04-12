@@ -3,6 +3,7 @@
 /* This file implements driver support for IP231 DAC            */
 /* Author: Sheng Peng, pengs@slac.stanford.edu, 650-926-3847    */
 /****************************************************************/
+
 #ifndef NO_EPICS
 #include "devLib.h"
 #include "drvSup.h"
@@ -12,10 +13,12 @@
 #include "iocsh.h"
 #endif
 
+#include "errlog.h"
 #include "drvIP231Lib.h"
 #include "drvIP231Private.h"
 
-int    IP231_DRV_DEBUG = 1;
+int    IP231_DRV_DEBUG = 0;
+int    IP231_DRV_DEBUG_CH = -1;
 
 static IP231_CARD_LIST	ip231_card_list;
 static int		card_list_inited=0;
@@ -83,7 +86,7 @@ int ip231Create (char *cardname, UINT16 carrier, UINT16 slot, char *dacmode)
     {/* Initialize the IP231 link list */
         ellInit( (ELLLIST *) &ip231_card_list);
         card_list_inited = 1;
-        if(IP231_DRV_DEBUG) printf("The size of IP231_HW_MAP is %d\n", sizeof(struct IP231_HW_MAP));
+        if(IP231_DRV_DEBUG) printf("The size of IP231_HW_MAP is %zu\n", sizeof(struct IP231_HW_MAP));
     }
 
     pcard->lock = epicsMutexMustCreate();
@@ -152,17 +155,12 @@ int ip231Create (char *cardname, UINT16 carrier, UINT16 slot, char *dacmode)
     /* Read EEPROM to get calibration data */
     for(loop = 0; loop < pcard->num_chnl; loop++)
     {
-        UINT8 offset_h8, offset_l8, gain_h8, gain_l8;
         UINT16 offset, gain;
         SINT16 offset_val, gain_val;
 
-        offset_h8 = pcard->pHardware->calData[loop*4 + 0];
-        offset_l8 = pcard->pHardware->calData[loop*4 + 1];
-        gain_h8 = pcard->pHardware->calData[loop*4 + 2];
-        gain_l8 = pcard->pHardware->calData[loop*4 + 3];
+        offset = pcard->pHardware->calData[loop*4+0];
+        gain = pcard->pHardware->calData[loop*4+2];  
 
-        offset = (offset_h8 << 8) + offset_l8;
-        gain = (gain_h8 << 8) + gain_l8;
         if(IP231_DRV_DEBUG) printf("Card %s, Channel %d, offset_err 0x%04x, gain_err 0x%04x\n", cardname, loop, offset, gain);
 
         offset_val = (SINT16)offset;
@@ -227,7 +225,8 @@ int ip231Write(IP231_ID pcard, UINT16 channel, signed int value)
         return -1;
     }
 
-    if(IP231_DRV_DEBUG) printf("Write %d to card %s channel %d\n", value, pcard->cardname, channel);
+    if ( IP231_DRV_DEBUG && (IP231_DRV_DEBUG_CH < 0 || IP231_DRV_DEBUG_CH == channel) )
+		printf("Write %d to card %s channel %d\n", value, pcard->cardname, channel);
 
     tmp = value * pcard->adj_slope[channel] + pcard->adj_offset[channel];
     if(tmp > 65535)
@@ -243,7 +242,8 @@ int ip231Write(IP231_ID pcard, UINT16 channel, signed int value)
 
     while( !(mask & (pcard->pHardware->writeStatus)) );
 
-    if(IP231_DRV_DEBUG) printf("Write corrected %d (%#04x) to card %s channel %d@%p\n", dac_val, dac_val, pcard->cardname, channel, &(pcard->pHardware->data[channel]));
+    if ( (IP231_DRV_DEBUG > 1) && (IP231_DRV_DEBUG_CH < 0 || IP231_DRV_DEBUG_CH == channel) )
+		printf("Write corrected %d (%#04x) to card %s channel %d@%p\n", dac_val, dac_val, pcard->cardname, channel, &(pcard->pHardware->data[channel]));
 
     pcard->pHardware->data[channel] = dac_val;
 
@@ -392,6 +392,7 @@ LOCAL void drvIP231Registrar(void) {
 }
 epicsExportRegistrar(drvIP231Registrar);
 epicsExportAddress( int, IP231_DRV_DEBUG );
+epicsExportAddress( int, IP231_DRV_DEBUG_CH );
 
 #endif /* NO_EPICS */
 
