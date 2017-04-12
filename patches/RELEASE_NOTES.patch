@@ -1,0 +1,64 @@
+diff --git a/RELEASE_NOTES b/RELEASE_NOTES
+index ce8dd47..480efcc 100644
+--- a/RELEASE_NOTES
++++ b/RELEASE_NOTES
+@@ -9,16 +9,8 @@
+ #  Rev:  dd-mmm-yyyy, Reviewer's Name    (USERNAME)
+ #--------------------------------------------------------------
+ #  Mod:
+-#        05-Apr-2012, K. Luchini         (LUCHINI):
+-#          release ip231-R2-2-4
+-#        20-Mar-2010, S. Hoobler         (SONYA):
+-#          release ip231-R2-2-0
+-#        23-Feb-2010, K. Luchini         (LUCHINI):
+-#          release ip231-R2-1-0
+-#        28-Apr-2009, K. Luchini         (LUCHINI):
+-#          release ip231-R2-0-0
+ #        21-Feb-2008, K. Luchini         (LUCHINI):
+-#          release ip231-R1-0-5
++#          relase ip231-R1-0-5
+ #        10-Dec-2007, K. Luchini         (LUCHINI):
+ #          relase ip231-R1-0-4
+ #        26-Sep-2007, K. Luchini         (LUCHINI):
+@@ -28,36 +20,11 @@
+ #          release ip231-R1-0-1
+ #
+ #==============================================================
+-##
+-ip231-R2-2-7:	 Build agasint ipac R2.11-1.5.0 and build for all targets
+-                 Add registrar information to drvIp231.c for linux builds
+-
+-ip231-R2-2-6:    Build against ipac-R2-11_1-2 which builds for all targets
+-
+-ip231-R2-2-5:     Build against ipac-R2-11_1-0 which builds for all targets
+-
+-ip231-R2-2-4: 05-Apr-2012, Nia Fong (LUCHINI):
+-               Installed drvIP231Private.h
+-
+-ip231-R2-2-3: 23-Jan-2012, Nia Fong (NIAFONG):
+-               Build with ipac-R2-11-lcls1
+-               cleanup configure/RELEASE
+-
+-ip231-R2-2-2:  Build against ipac-R2-8-lcls8
+-
+-ip231-R2-2-1:   07-Sep-2011, K. Luchini (LUCHINI:
+-                Upgrade ipac from ipac-R2-8-lcls7 to ipac-R2-11-lcls1
+-                Upgrade macros in RELEASE_SITE
+-
+-ip231-R2-2-0:   Build with base-R3-14-8-2-lcls6
+-                Build with rtems-R4.9.4
+-
+-ip231-R2-1-0:   Build with base-R3-14-8-2-lcls5
+-                Build with rtems-R4.9.3
+-                Install Headers for interface to driver
+-
+-ip231-R2-0-0:   Build with base-R3-14-8-2-lcls3 
+-                Build with rtems-R4.9.1
++#
++ip231-R1-0-5:   Build with base-R3-14-9-lcls1 (RTEMS 4.7.1)
++                Build with ipac-R2-8-lcls4  
++                Replace CONFIG_APP with CONFIG_SITE
++                Add RELEASE_SITE  
+ 
+ ip231-R1-0-4:   Backout epics version to bas-R3-14-8-2
+                 Build with ipac-R2-8-lcls3 w/no hotswap 

@@ -1,0 +1,246 @@
+diff --git a/ip231App/Db/IP231.substitutions b/ip231App/Db/IP231.substitutions
+index 3c22285..22c5a7b 100644
+--- a/ip231App/Db/IP231.substitutions
++++ b/ip231App/Db/IP231.substitutions
+@@ -1,6 +1,6 @@
+ #==============================================================================
+ #
+-# Abs:  Acromag IP-231 DAC template
++# Abs:  Acromag Analog Output IP-231 DAC template
+ #
+ # Name: IP231.substitutions
+ #
+@@ -13,23 +13,35 @@
+ #
+ #==============================================================================
+ #
++# EGU	- Engineering Units
++# EGUF	- Engineering Units Full
++# EGUL	- Engineering Units Low
++# ADEL	- Archive Deadband Limit
++# MDEL	- Monitor Deadband Limit
++# HIHI	- HiHi Alarm Limit
++# HIGH	- High Alarm Limit
++# LOW	- Low  Alarm Limit
++# LOLO	- LoLo Alarm Limit
++#
+ file IP231.template
+ {
+-  pattern { RECNAME,                  CARD  ,  CH, EFUG,  EGUL , ADEL,  MDEL, HIHI,  HIGH, LOW, LOLO, EGU   }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   0, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   1, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   2, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   3, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   4, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   5, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   6, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   7, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   8, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,   9, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,  10, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,  11, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,  12, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,  13, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,  14, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+-          { "LCLS:IP_TEST:AO:C$(CH)", "ao0" ,  15, 10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	pattern
++	{ RECORDNAME,    CH,  EGUF,  EGUL,  ADEL,  MDEL, HIHI,  HIGH, LOW, LOLO, EGU   }
++	{ "$(PRE)$(CH)",  0,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  1,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  2,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  3,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  4,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  5,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  6,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  7,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  8,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)",  9,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)", 10,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)", 11,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)", 12,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)", 13,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)", 14,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
++	{ "$(PRE)$(CH)", 15,  10.0,  -10.0, 0.0 ,  0.0 , 4.5 ,  4.0 , 1.0, 0.5,  Volts }
+ }
++
+diff --git a/ip231App/Db/IP231.template b/ip231App/Db/IP231.template
+index 881e28d..63ef98b 100644
+--- a/ip231App/Db/IP231.template
++++ b/ip231App/Db/IP231.template
+@@ -1,25 +1,26 @@
+-record(ao, "$(RECNAME)") {
++record(ao, "$(RECORDNAME)")
++{
+   field(DESC, "Analog Output")
+-  field(DTYP, "IP231")
++  field(DTYP, "ACROMAG-IP231")
+   field(OUT,  "@$(CARD):$(CH):DATA")
+-  field(PREC, "3")
++  field(PREC, "$(PREC=3)")
+   field(EGUF, "$(EGUF)")
+   field(EGUL, "$(EGUL)")
+   field(HOPR, "$(EGUF)")
+   field(LOPR, "$(EGUL)")
+-  field(ADEL, "$(ADEL)")
+-  field(MDEL, "$(MDEL)")
+-  field(HIHI, "$(HIHI)")
+-  field(HIGH, "$(HIGH)")
+-  field(LOW,  "$(LOW)")
+-  field(LOLO, "$(LOLO)")
+-  field(EGU,  "$(EGU)")
++  field(ADEL, "$(ADEL=0.01)")
++  field(MDEL, "$(MDEL=0)")
++  field(HIHI, "$(HIHI=$(EGUF))")
++  field(HIGH, "$(HIGH=$(EGUF))")
++  field(LOW,  "$(LOW=$(EGUL))")
++  field(LOLO, "$(LOLO=$(EGUL))")
++  field(EGU,  "$(EGU=V)")
+   field(LINR, "LINEAR")
+-  field(HHSV, "MAJOR")
+-  field(HSV,  "MINOR")
+-  field(LSV,  "MINOR")
+-  field(LLSV, "MAJOR")
+-  field(PINI, "$(PINI=NO)")
++  field(HHSV, "$(HHSV=MAJOR)")
++  field(HSV,  "$(HSV=MINOR)")
++  field(LSV,  "$(LSV=MINOR)")
++  field(LLSV, "$(LLSV=MAJOR)")
++  field(PINI, "$(PINI=YES)")
+ }
+ 
+ 
+diff --git a/ip231App/Db/Makefile b/ip231App/Db/Makefile
+index 8851448..1c462a8 100644
+--- a/ip231App/Db/Makefile
++++ b/ip231App/Db/Makefile
+@@ -11,7 +11,13 @@ include $(TOP)/configure/CONFIG
+ # Create and install (or just install)
+ # databases, templates, substitutions like this
+ DB += IP231.template
+-DB += IP231.db
++DB += IP231.substitutions
++
++ARCHIVE += archive_IP231.sub-arch
++ARCHIVE += ip231-signal.tpl-arch
++
++REQ += autosave_IP231.sub-req
++REQ += ip231-signal.tpl-req
+ 
+ #----------------------------------------------------
+ # If <anyname>.db template is not named <anyname>*.template add
+diff --git a/ip231App/Db/archive_IP231.sub-arch b/ip231App/Db/archive_IP231.sub-arch
+new file mode 100644
+index 0000000..6c14cd7
+--- /dev/null
++++ b/ip231App/Db/archive_IP231.sub-arch
+@@ -0,0 +1,23 @@
++# archive substitution for IP231 
++file ip231-signal.tpl-arch
++{
++	pattern
++	{ SIG			}
++	{ "$(PRE)0"		}
++	{ "$(PRE)1"		}
++	{ "$(PRE)2"		}
++	{ "$(PRE)3"		}
++	{ "$(PRE)4"		}
++	{ "$(PRE)5"		}
++	{ "$(PRE)6"		}
++	{ "$(PRE)7"		}
++	{ "$(PRE)8"		}
++	{ "$(PRE)9"		}
++	{ "$(PRE)10"	}
++	{ "$(PRE)11"	}
++	{ "$(PRE)12"	}
++	{ "$(PRE)13"	}
++	{ "$(PRE)14"	}
++	{ "$(PRE)15"	}
++}
++
+diff --git a/ip231App/Db/autosave_IP231.sub-req b/ip231App/Db/autosave_IP231.sub-req
+new file mode 100644
+index 0000000..7887011
+--- /dev/null
++++ b/ip231App/Db/autosave_IP231.sub-req
+@@ -0,0 +1,23 @@
++# autosave substitution for IP231 
++file ip231-signal.tpl-req
++{
++	pattern
++	{ SIG			}
++	{ "$(PRE)0"		}
++	{ "$(PRE)1"		}
++	{ "$(PRE)2"		}
++	{ "$(PRE)3"		}
++	{ "$(PRE)4"		}
++	{ "$(PRE)5"		}
++	{ "$(PRE)6"		}
++	{ "$(PRE)7"		}
++	{ "$(PRE)8"		}
++	{ "$(PRE)9"		}
++	{ "$(PRE)10"	}
++	{ "$(PRE)11"	}
++	{ "$(PRE)12"	}
++	{ "$(PRE)13"	}
++	{ "$(PRE)14"	}
++	{ "$(PRE)15"	}
++}
++
+diff --git a/ip231App/Db/ip231-signal.tpl-arch b/ip231App/Db/ip231-signal.tpl-arch
+new file mode 100644
+index 0000000..565674e
+--- /dev/null
++++ b/ip231App/Db/ip231-signal.tpl-arch
+@@ -0,0 +1,23 @@
++# Archive IP231 Analog Output Signal PV list
++$(SIG).VAL		1
++$(SIG).ADEL		30
++$(SIG).DESC		30
++$(SIG).DRVH		30
++$(SIG).DRVL		30
++$(SIG).EGU		30
++$(SIG).EGUF		30
++$(SIG).EGUL		30
++$(SIG).HHSV		30
++$(SIG).HIGH		30
++$(SIG).HIHI		30
++$(SIG).HOPR		30
++$(SIG).HSV		30
++$(SIG).HYST		30
++$(SIG).LINR		30
++$(SIG).LLSV		30
++$(SIG).LOLO		30
++$(SIG).LOPR		30
++$(SIG).LOW		30
++$(SIG).LSV		30
++$(SIG).MDEL		30
++$(SIG).PREC		30
+diff --git a/ip231App/Db/ip231-signal.tpl-req b/ip231App/Db/ip231-signal.tpl-req
+new file mode 100644
+index 0000000..131be55
+--- /dev/null
++++ b/ip231App/Db/ip231-signal.tpl-req
+@@ -0,0 +1,23 @@
++# Autosave IP231 Analog Output Signal PV list
++$(SIG).VAL
++$(SIG).ADEL
++$(SIG).DESC
++$(SIG).DRVH
++$(SIG).DRVL
++$(SIG).EGU
++$(SIG).EGUF
++$(SIG).EGUL
++$(SIG).HHSV
++$(SIG).HIGH
++$(SIG).HIHI
++$(SIG).HOPR
++$(SIG).HSV
++$(SIG).HYST
++$(SIG).LINR
++$(SIG).LLSV
++$(SIG).LOLO
++$(SIG).LOPR
++$(SIG).LOW
++$(SIG).LSV
++$(SIG).MDEL
++$(SIG).PREC
