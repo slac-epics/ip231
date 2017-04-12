@@ -29,6 +29,10 @@
 #
 #==============================================================
 ##
+R2.3.0-0.1.0     Apr. 11, 2017 - Marcio Donadio
+                 - Run patch files from folder /patches in order to bring EED 
+                 differences to PCDS version
+
 R2.3.0:          Apr. 11, 2017 - Marcio Donadio
                  - Changed configuration files for EPICS 3.15 migration and
                  for GIT workflow.
