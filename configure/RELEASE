@@ -3,15 +3,9 @@
 include $(TOP)/RELEASE_SITE
 
 # ===============================================================
-# Define the location and version of EPICS base
-# ===============================================================
-BASE_MODULE_VERSION=R3.14.12-0.4.0
-EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
-
-# ===============================================================
 # Define the version(s) of any other needed modules 
 # ===============================================================
-IPAC_MODULE_VERSION=R3.0.0-1.1.4
+IPAC_MODULE_VERSION             = R2.8-1.2.2
 
 # ============================================================
 # External Support module path definitions
@@ -25,5 +19,15 @@ IPAC_MODULE_VERSION=R3.0.0-1.1.4
 # included in the compiler link path for that architecture.
 #
 # If your build fails, look for these paths in your build output
-# ============================================================
+# =======================================================================
+# Example: IPAC=$(EPICS_MODULES)/ipac/$(IPAC_MODULE_VERSION)
+# =======================================================================
 IPAC=$(EPICS_MODULES)/ipac/$(IPAC_MODULE_VERSION)
+# =======================================================================
+
+# =====================================================================
+# Set EPICS_BASE last so it appears last in the DB, DBD, INCLUDE, 
+# and LIB search paths
+# ====================================================================
+EPICS_BASE=$(BASE_SITE_TOP)/$(BASE_MODULE_VERSION)
+
