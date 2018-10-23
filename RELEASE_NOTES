@@ -29,6 +29,10 @@
 #
 #==============================================================
 ##
+R2.3.0-0.1.1     Oct. 23, 2018 - Marcio Donadio
+                 - Release to run with IPAC R2.11-1.5.1, that contains PCIe
+                   Acromag carrier board.
+
 R2.3.0-0.1.0     Apr. 11, 2017 - Marcio Donadio
                  - Run patch files from folder /patches in order to bring EED 
                  differences to PCDS version
