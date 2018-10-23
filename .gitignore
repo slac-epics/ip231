@@ -13,3 +13,5 @@ cdCommands
 envPaths
 RELEASE_SITE
 tags
+archive/
+autosave/
