@@ -314,9 +314,13 @@ void ip231SimulTriggerByName(char * cardname)
 /**************************************************************************************************/
 static  long    IP231_EPICS_Report(int level);
 
+#ifndef USE_TYPED_DRVET
 const struct drvet drvIP231 = {2,                              /*2 Table Entries */
                               (DRVSUPFUN) IP231_EPICS_Report,  /* Driver Report Routine */
                               NULL}; /* Driver Initialization Routine */
+#else
+const drvet drvIP231 = {2, IP231_EPICS_Report, NULL};
+#endif
 
 epicsExportAddress(drvet,drvIP231);
 

@@ -8,10 +8,11 @@
 
 #include <epicsVersion.h>
 
-#if EPICS_VERSION>=3 && EPICS_REVISION>=14
+#if (EPICS_VERSION>=3 && EPICS_REVISION>=14) || EPICS_VERSION>3
 #include <epicsExport.h>
 #endif
 
+#include <errlog.h>
 #include <devLib.h>
 #include <dbAccess.h>
 #include <dbScan.h>
@@ -205,7 +206,7 @@ struct IP231_DEV_SUP_SET
     DEVSUPFUN       special_linconv;
 } devAoIP231 = {6, NULL, NULL, init_ao, NULL, write_ao, ao_lincvt};
 
-#if EPICS_VERSION>=3 && EPICS_REVISION>=14
+#if (EPICS_VERSION>=3 && EPICS_REVISION>=14) || EPICS_VERSION>3
 epicsExportAddress(dset, devAoIP231);
 #endif
 

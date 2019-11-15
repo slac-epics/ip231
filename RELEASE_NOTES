@@ -29,6 +29,14 @@
 #
 #==============================================================
 ##
+
+R2.3.0-0.2.0     Nov. 14, 2019 - Kukhee Kim
+                 - build for epics 7
+                 - align with ipac R2.14-0.2.0
+                 - use typed RSET and typed DRVET
+                 - include errlog.h to avoid undefined symbol issue for errlogPrintf
+                 - bug fix for EPICS_VERSION check
+
 R2.3.0-0.1.1     Oct. 23, 2018 - Marcio Donadio
                  - Release to run with IPAC R2.11-1.5.1, that contains PCIe
                    Acromag carrier board.
