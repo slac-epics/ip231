@@ -29,6 +29,8 @@
 #
 #==============================================================
 ##
+R2.3.0-0.2.2     Apr. 25, 2022 - Kristi Luchini
+                 - Added macros and defaults for DESC field
 
 R2.3.0-0.2.1     Nov. 15, 2019 - Marcio Donadio
                  - Upgraded to ipac/R2.15-1.0.0.
