@@ -21,7 +21,12 @@
 #
 #==============================================================
 #
-R2.2.3-1.5.1   21-Apr-2022,  K. Luchini (luchini):
+R2.3.0-0.2.3   12-Aug-2022,  K. Luchini (luchini):
+               On R2.3.0-0.branch
+               Add build for linuxRT-x86-64
+
+R2.3.0-0.2.2   21-Apr-2022,  K. Luchini (luchini):
+               On R2.3.0-0.branch
                add macro DESC with default
                update ipac module to R2.15-1.0.0
 
