@@ -21,6 +21,10 @@
 #
 #==============================================================
 #
+R2.3.0-0.2.3   5-Oct-2022,  V. Esposito (espov):
+               On R2.3.0-0.branch
+               Point to latest IPAC release
+
 R2.3.0-0.2.3   12-Aug-2022,  K. Luchini (luchini):
                On R2.3.0-0.branch
                Add build for linuxRT-x86-64
