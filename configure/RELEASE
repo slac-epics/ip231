@@ -23,7 +23,6 @@ IPAC_MODULE_VERSION             = R2.15-1.0.1
 # Example: IPAC=$(EPICS_MODULES)/ipac/$(IPAC_MODULE_VERSION)
 # =======================================================================
 IPAC=$(EPICS_MODULES)/ipac/$(IPAC_MODULE_VERSION)
-#IPAC=/cds/group/pcds/epics-dev/espov/modules/ipac
 
 # =======================================================================
 
